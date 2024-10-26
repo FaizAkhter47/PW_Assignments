@@ -1,0 +1,117 @@
+git init 
+Q1. What is Linux?
+
+Linux is an open-source operating system (OS) that is a variant of Unix. It's a free and modular OS that runs on various hardware platforms. Linux is widely used in servers, desktops, embedded devices, and mobile devices. Its kernel (core) is written by Linus Torvalds and is maintained by a community of developers.
+
+Q2. Difference between Hard Link and Soft Link (Symbolic Link)
+
+Hard Link:
+
+- A hard link is a direct reference to a file's inode (index node).
+- It's an additional name for an existing file.
+- Both links point to the same physical location on disk.
+- Deleting one link doesn't affect the other.
+- Can't be created across file systems.
+
+Example: ln file1 file2 (creates a hard link)
+
+Soft Link (Symbolic Link):
+
+- A soft link is a reference to another file's path.
+- It's a shortcut to a file or directory.
+- Contains the path to the target file.
+- Deleting the original file breaks the link.
+- Can be created across file systems.
+
+Example: ln -s file1 file2 (creates a symbolic link)
+
+Q3. What is a Kernel in Linux?
+
+The Linux kernel is the core part of the operating system, responsible for:
+
+- Process management
+- Memory management
+- File system management
+- Input/Output (I/O) management
+- Networking
+- Security
+
+It acts as a bridge between hardware and user-level applications.
+
+Q4. Create a user account
+
+To create a user account, use the useradd command:
+
+useradd [options] username
+
+Example: useradd -m p1 (creates user p1 with a home directory)
+
+Q5. Add user to multiple groups
+
+To add user p1 to groups g1, g2, and g3, use:
+
+usermod -aG g1,g2,g3 p1
+
+Q6. Set default group for new files
+
+To set the default group for new files created by user p1 to g1, use:
+
+newgrp g1
+
+Then, set the umask to ensure new files inherit the group:
+
+umask 002
+
+Alternatively, you can set the default group using usermod:
+
+usermod -g g1 p1
+
+Q7. Create directory and set ownership
+
+To create directory /tmp/bg as root and set ownership to user abhi:
+
+mkdir /tmp/bg
+chown abhi:abhi /tmp/bg
+
+To grant abhi permissions to create, delete, and modify files:
+
+chmod 700 /tmp/bg
+
+This sets rwx (read, write, execute) permissions for the owner.
+
+Q8. Identify and terminate CPU-intensive process
+
+To identify the CPU-intensive process:
+
+1. Use top or htop command to list running processes.
+2. Sort by CPU usage (%CPU column).
+3. Identify the process ID (PID) of the culprit process.
+
+To terminate the process:
+
+kill PID
+
+Replace PID with the actual process ID.
+
+Alternatively, use pkill or killall to terminate the process by name:
+
+pkill process_name
+
+or
+
+killall process_name
+
+grep command
+
+The grep command is used for searching text patterns in files:
+
+grep [options] pattern file
+
+Example: grep keyword file.txt (searches for keyword in file.txt)
+
+Common options:
+
+- -i (case-insensitive search)
+- -v (invert search)
+- -c (count matches)
+- -n (show line numbers)
